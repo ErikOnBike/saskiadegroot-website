@@ -29,39 +29,60 @@
         }
       }
     }
+
+    // Get elemts for showing full (polaroid) image
     var fullImagePresenter = document.getElementById('full-image-presenter');
     var fullImageContainer = document.getElementById('full-image-container');
     var fullImageBlock = document.getElementById('full-image-block');
+
+    // Scale for polaroid is 'stored' in width of image container (see content.less)
+    var fullImageScalePercentage = parseInt(window.getComputedStyle(fullImageContainer).width) / 100;
+
+    // Show full (polaroid) image
+    // This function is an event handler for clicking on a polaroid image.
+    // Since the image has a :hover style, this style is assumed 'active' (ie scale is applied).
+    // Find the exact location where the image is shown (in hover-mode) and create an exact match
+    // on top of it. Animate this one to fill the space (ie window) available (scroll if necessary).
+    //
     function showImageFullScreen(e) {
       e.preventDefault();
       var imageContainer = this;  // Anchor actually
-      var image = e.target;
+      var image = e.target;       // Real image
       if(image) {
+
+        // Retrieve URL for a large image (smaller images will be shown on media with less resolution)
         var url = image.currentSrc;
         if(url) {
           url = url.replace(/\/thumbnails\/(small|medium)\//, '/thumbnails/large/');  // Always use large image (if thumbnails are used)
         }
-/*
-        var containerStyle = imageContainer.getAttribute('style');
-        var width = containerStyle.replace(/^.*(width: +[0-9\.]+(px|em|vw|%)?).*$/, "$1");
-        imageContainer.setAttribute('data-width', width);
-        imageContainer.setAttribute('style', containerStyle.replace(width, "")); // Remove width
-        imageContainer.setAttribute('class', 'polaroid clicked left');
-        console.log(width);
-*/
+
+        // Start with current relative position and find absolute position
         var imagePosition = { offsetTop: imageContainer.offsetTop, offsetLeft: imageContainer.offsetLeft };
-console.log(imagePosition);
         var imageParent = imageContainer.offsetParent;
         while(imageParent) {
           imagePosition.offsetTop += imageParent.offsetTop;
           imagePosition.offsetLeft += imageParent.offsetLeft;
           imageParent = imageParent.offsetParent;
         }
-        fullImagePresenter.style.top = imagePosition.offsetTop + "px";
-        fullImagePresenter.style.left = imagePosition.offsetLeft + "px";
+
+        // Find actual size and adjust image based on 
+        var style = window.getComputedStyle(imageContainer);
+        var styleWidth = parseInt(style.width);
+        var styleHeight = parseInt(style.height);
+        imagePosition.offsetTop -= styleHeight * (fullImageScalePercentage - 1) / 2;
+        imagePosition.offsetTop -= window.scrollY;
+        imagePosition.offsetLeft -= styleWidth * (fullImageScalePercentage - 1) / 2;
+        styleWidth *= fullImageScalePercentage;
+        styleHeight *= fullImageScalePercentage;
+        fullImageContainer.style.top = imagePosition.offsetTop + "px";
+        fullImageContainer.style.left = imagePosition.offsetLeft + "px";
+        fullImageContainer.style.width = styleWidth + "px";
+        fullImageContainer.style.height = styleHeight + "px";
         fullImageContainer.setAttribute('title', imageContainer.getAttribute('title'));
         fullImageBlock.src = url;
-        console.log(imagePosition);
+
+        // If all went well, show image
+        fullImagePresenter.style.display = "block";
       }
       return false;
     }
