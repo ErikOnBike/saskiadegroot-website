@@ -1,0 +1,234 @@
+/*
+ * Developed by Erik at www.toolparadise.nl
+*/
+
+nav .menu-blog ul {
+	display: block;
+	max-height: 60vh;
+	overflow: scroll;
+}
+
+nav .menu-blog li[data-status="new"],
+nav .menu-blog li[data-status="draft"] {
+	font-style: italic;
+}
+
+.page .review {
+	display: none;
+}
+
+.cke_dialog .component div {
+	width: 100%;
+	white-space: normal;
+}
+
+.cke_dialog .page-drawing-artwork .image-container {
+	width: 100%;
+	padding-top: 100%;
+}
+
+.cke_dialog .polaroid-dialog img {
+	max-width: 50vw;
+	max-height: 50vh;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.cke_dialog .polaroid-image {
+	position: relative;
+}
+
+.cke_dialog .polaroid-image img[src=""] {
+	display: none;
+}
+
+.cke_dialog .polaroid-image .remove.button {
+	display: block;
+	position: absolute;
+	top: 2em;
+	right: 2em;
+	width: 3em;
+	height: 3em;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 3em;
+	font-weight: bold;
+	border-radius: 1.5em;
+	background-color: #ffdddd;
+	cursor: pointer;
+}
+
+.cke_dialog .polaroid-selection {
+	max-width: 50vw;
+	height: 15vh;
+	overflow: scroll;
+}
+
+.cke_dialog h3 {
+	font-size: 1.2em;
+	padding-top: .5em;
+}
+
+.cke_dialog .polaroid-selection img {
+	display: inline-block;
+	height: 14vh;
+	padding-left: .5em;
+	padding-right: .5em;
+}
+
+.cke_dialog .image-upload button {
+	padding: 4px;
+	border: 1px solid #bcbcbc;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+.cke_dialog .image-upload button:active {
+	background-color: #c0c0c0;
+}
+
+.cke_dialog .blog-dialog {
+	position: relative;
+	max-width: 50vw;
+}
+
+.cke_dialog .blog-dialog div {
+	white-space: normal;
+}
+
+.cke_dialog .blog-dialog .error {
+	color: #ff0000;
+}
+
+.cke_dialog .rect-photo-dialog {
+	margin-top: 1em;
+	max-width: 50vw;
+}
+
+.cke_dialog .rect-photo-dialog div {
+	white-space: normal;
+}
+
+.cke_dialog .rect-photo-dialog .header {
+	margin-left: 10%;
+}
+
+.cke_dialog .rect-photo-dialog .rect-photo {
+	position: relative;
+	width: 80%;
+	padding-top: 80%;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: rgba(240, 240, 240, 1);
+}
+
+.cke_dialog .rect-photo-dialog .rect-photo img {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	cursor: move;
+}
+
+.cke_dialog .rect-photo-dialog .zoom-control {
+	position: relative;
+	width: 100%;
+	height: 24px;
+}
+
+.cke_dialog .rect-photo-dialog .zoom-label {
+	position: relative;
+	margin-left: 10%;
+	margin-top: 1em;
+}
+
+.cke_dialog .rect-photo-dialog .zoom-control .range {
+	position: absolute;
+	left: 10%;
+	right: 10%;
+	top: 8px;
+	height: 0px;
+	border: 4px solid #909090;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.cke_dialog .rect-photo-dialog .zoom-control .range .position {
+	position: absolute;
+	margin-top: -12px;	/* top + border (8 + 4) */
+	margin-left: -4px;	/* border (4) */
+	left: 0%;
+	height: 16px;
+	width: 0px;
+	border: 4px solid #303030;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.cke_dialog .reviews-dialog {
+	max-height: 20vh;
+	overflow: scroll;
+}
+
+.cke_dialog .reviews-dialog div {
+	white-space: normal;
+}
+
+.cke_dialog .reviews-dialog table {
+	table-layout: fixed;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.cke_dialog .reviews-dialog td {
+	border: 1px solid #606060;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.cke_dialog .reviews-dialog td.title-nl,
+.cke_dialog .reviews-dialog td.title-en {
+	width: 30%;
+}
+
+.cke_dialog .reviews-dialog td.name {
+	width: 15%;
+}
+
+.cke_dialog .reviews-dialog td.category {
+	width: 20%;
+}
+
+.cke_dialog .reviews-dialog thead td {
+	font-weight: bold;
+}
+
+.cke_dialog .reviews-dialog tbody tr:hover td {
+	color: #ffffff;
+	background-color: #303030;
+	cursor: pointer;
+}
+
+.cke_dialog .reviews-dialog tbody tr:hover td button {
+	cursor: pointer;
+}
+
+.cke_dialog .reviews-dialog tbody tr.selected td {
+	color: #ffffff;
+	background-color: #9090ff;
+}
+
+.cke_dialog .status-component {
+	position: relative;
+	max-width: 50vw;
+}
+
+.cke_dialog .status-component b {
+	font-weight: bold;
+}
+
+.cke_dialog .status-component .page-entry {
+	color: #0000ff;
+	text-decoration: underline;
+	cursor: pointer;
+}
