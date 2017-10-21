@@ -170,6 +170,9 @@ var siteEditor = instantiateClass({
 		var editorPage = siteEditor.getEditorPage(editor);
 		pageData.id = editorPage.attr("data-href");
 		pageData.category = categories.filter(function(cat) { return editorPage.classed(cat); })[0];
+		if(!pageData.category) {
+			pageData.category = "";
+		}
 
 		// Add image, date and draft state in case of blog and update id
 		if(pageData.category === "blog" && editorPage.attr("data-publish-date")) {
