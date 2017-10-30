@@ -1628,7 +1628,7 @@ var website = instantiateClass({
 		// Check for specific dates
 		var days = skipPastNames ?
 			-1 :		// Prevent past names from being generated
-			(today.getTime() - date.getTime()) / (1000 * 60 * 60 * 24)
+			Math.floor((today.getTime() - date.getTime()) / (1000 * 60 * 60 * 24))
 		;
 		if(days === 0) {
 			return website.text.general.pastNames.today;
