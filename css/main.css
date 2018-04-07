@@ -492,9 +492,9 @@ nav .menu-blog ul {
 	color: #e156c8;		/* Ref: guiding color */ 
 }
 
-.page.calendar h1,
-.page.calendar h2 {
-	color: #843fd9;		/* Ref: calendar color */ 
+.page.links h1,
+.page.links h2 {
+	color: #843fd9;		/* Ref: links color */ 
 }
 
 .page.contact h1,
