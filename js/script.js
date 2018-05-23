@@ -1477,8 +1477,13 @@ var website = instantiateClass({
 	},
 	loadResourcesLate: function(page) {
 
-		// Replace (direct) all resource src attributes in given page with value in load-late attribute
+		// Replace (direct) all resource src attributes in given page with value in load-late or load-lazy attribute
+		var loadResource = 
 		var attrName = "data-load-late-src";
+		page.selectAll("[" + attrName + "]").each(function() {
+			website.loadResource(this, attrName);
+		});
+		attrName = "data-load-lazy-src";
 		page.selectAll("[" + attrName + "]").each(function() {
 			website.loadResource(this, attrName);
 		});
