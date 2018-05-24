@@ -670,7 +670,7 @@ var blogs = instantiateClass({
 				date: blogsObject[blogId].date,
 				img: blogsObject[blogId].img,
 				thumbnail: blogsObject[blogId].img.indexOf("@") >= 0 ? "/img/thumbnail-" + blogId + ".jpg" : "/img/no_photo.png",
-				content: blogsObject[blogId].content,
+				content: blogsObject[blogId].content.replace(/(<img [^>]*) src=/, "$1 data-load-late-src="),
 				title: blogs.extractElement(blogsObject[blogId].content, "h1"),
 				link: "/blog/" + blogId,
 				status: blogsObject[blogId].status
@@ -722,7 +722,7 @@ var blogs = instantiateClass({
 				.append("div")
 					.attr("class", "blog-image")
 					.append("img")
-						.attr("src", blogEntry.thumbnail)
+						.attr("data-load-lazy-src", blogEntry.thumbnail)
 			;
 			blogElement
 				.append("h1")
@@ -860,6 +860,9 @@ var pagePresenter = instantiateClass({
 			this.showLanguage(newActivePage, options);
 			return;
 		}
+
+		// Load resources
+		website.loadResourcesLate(newActivePage);
 
 		// Fix for Safari
 		var didSwipeGestureOccurJustNow = browser.didSwipeGestureOccurJustNow();
@@ -1361,7 +1364,7 @@ var imageGrid = instantiateClass({
 					.append("div")
 						.attr("class", "image")
 						.append("img")
-							.attr("src", function(d) { return d.src; })
+							.attr("data-load-late-src", function(d) { return d.src; })
 							.attr("data-id", function(d, index) { return index; })
 							.attr("data-selection", function(d) { return d.selection; })
 							.attr("data-title-nl", function(d) { return d["title-nl"]; })
@@ -1454,6 +1457,35 @@ var website = instantiateClass({
 		this.loadText(language);
 		this.loadArtwork();
 		this.loadReviews();
+	},
+	loadResource: function(node, attrName) {
+		var element = d3.select(node);
+		element
+			.attr("src", element.attr(attrName))
+			.attr(attrName, null)	// Remove 'old' attr
+		;
+	},
+	loadResourcesLazy: function() {
+
+		// Replace (delayed) all resource src attributes with value in load-lazy attribute
+		window.setTimeout(function() {
+			var attrName = "data-load-lazy-src";
+			d3.selectAll("[" + attrName + "]").each(function() {
+				website.loadResource(this, attrName);
+			});
+		}, 1500);
+	},
+	loadResourcesLate: function(page) {
+
+		// Replace (direct) all resource src attributes in given page with value in load-late or load-lazy attribute
+		var attrName = "data-load-late-src";
+		page.selectAll("[" + attrName + "]").each(function() {
+			website.loadResource(this, attrName);
+		});
+		attrName = "data-load-lazy-src";
+		page.selectAll("[" + attrName + "]").each(function() {
+			website.loadResource(this, attrName);
+		});
 	},
 	loadArtwork: function() {
 
@@ -1753,4 +1785,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Main
 browser.initialize();
+website.addAfterShowHandler(website.loadResourcesLazy);
 website.load();
