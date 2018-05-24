@@ -21,6 +21,7 @@ var siteEditor = instantiateClass({
 
 			// Get blog page
 			var page = pages.forName(blogEntry.name);
+			website.loadResourcesLate(page);
 
 			// Add date and status to pages
 			page
