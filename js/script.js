@@ -786,6 +786,49 @@ var blogs = instantiateClass({
 	}
 });
 
+// Reviews
+var reviews = instantiateClass({
+
+	// Methods
+	appendReviews: function(reviews) {
+		var language = website.getLanguage();
+		if(!language) {
+			return;
+		}
+		reviews.forEach(function(review) {
+
+			// Retrieve category, removing any subcategories (format: "cat-subcat" like "guiding-cycling")
+			if(!review.category) {
+				return;
+			}
+			var category = review.category.replace(/-.*$/, "");
+
+			// Retrieve language specific text (stop if none present)
+			var text = review["text-" + language];
+			if(!text) {
+				return;
+			}
+
+			// Append review to all relevant locations
+			var reviewElement = d3.selectAll('[data-reviews="' + category + '"]')
+				.append("li")
+					.append("div")
+						.attr("class", "review")
+			;
+			reviewElement
+				.append("div")
+					.attr("class", "text")
+					.text(text)
+			;
+			reviewElement
+				.append("div")
+					.attr("class", "name")
+					.text(review.name || website.text.general.anonymous)
+			;
+		});
+	}
+});
+
 // Page presenter
 var pagePresenter = instantiateClass({
 
@@ -916,8 +959,10 @@ var pagePresenter = instantiateClass({
 		;
 		var isTiltedApplied = false;
 
-		// Remove reviews
-		pagePresenter.removeReview(newActivePage);
+		// Initialize reviews
+		if(!browser.isEditable()) {
+			pagePresenter.initReview(newActivePage);
+		}
 
 		// Remove visibility from all other pages
 		var pagesInvolved = [ pages.activePage.node(), newActivePage.node() ];
@@ -1044,7 +1089,7 @@ var pagePresenter = instantiateClass({
 
 		// Check for presence of review element
 		var page = pages.activePage;
-		var reviewElement = page.select(".review");
+		var reviewElement = page.select(".dynamic.review");
 		if(reviewElement.size() === 0) {
 			return;
 		}
@@ -1084,7 +1129,8 @@ var pagePresenter = instantiateClass({
 			// Helper function
 			var updateReview = function() {
 
-				// Update text and name
+				// Update category, text and name
+				reviewElement.attr("data-review", review.category);
 				reviewElement.select(".text").text(text);
 				reviewElement.select(".name").text(review.name || website.text.general.anonymous);
 			};
@@ -1126,10 +1172,10 @@ var pagePresenter = instantiateClass({
 			}, timeout);
 		}
 	},
-	removeReview: function(page) {
+	initReview: function(page) {
 
 		// Create content of review element
-		var reviewElement = page.select(".review");
+		var reviewElement = page.select(".dynamic.review");
 		if(reviewElement.select(".text").size() === 0) {
 			reviewElement.append("div").attr("class", "text");
 			reviewElement.append("div").attr("class", "name");
@@ -1139,6 +1185,35 @@ var pagePresenter = instantiateClass({
 		reviewElement.style("left", null);
 		reviewElement.select(".text").text("");
 		reviewElement.select(".name").text("");
+
+		// Add event handler
+		reviewElement.on("click", function() {
+			var category = reviewElement.attr("data-review");
+			if(!category) {
+				return;
+			}
+
+			// Remove subcategories
+			category = category.replace(/-.*$/, "");
+
+			// Find matching page
+			var page = pages.activePage;
+			var pageUrl = page.attr("data-href");
+			if(!pageUrl) {
+				return;
+			}
+			var reviewPageUrl = pageUrl.replace(/^(\/[a-z0-9]*)(?:\/[a-z0-9]*)?$/, "$1/reviews");
+			if(reviewPageUrl === pageUrl) {
+				return;	// No replace took place
+			}
+			var reviewPage = pages.forUrl(reviewPageUrl);
+			if(!reviewPage) {
+				return;
+			}
+
+			// Show page
+			pagePresenter.showPage(reviewPage);
+		});
 	}
 });
 
@@ -1506,12 +1581,13 @@ var website = instantiateClass({
 		// Load reviews
 		d3.json("/data/reviews.json", function(error, data) {
 			if(error || !data || !Array.isArray(data)) {
-				console.error("Failed to load artwork", error, data);
+				console.error("Failed to load reviews", error, data);
 				return;
 			}
 
 			// Store reviews
 			website.reviews = data;
+			website.show();
 		});
 	},
 	loadText: function(language, callback) {
@@ -1594,6 +1670,9 @@ var website = instantiateClass({
 				blogs.removeMenus();
 				blogs.setEntries(website.text.blogs);
 
+				// Append reviews to pages
+				reviews.appendReviews(website.reviews);
+
 				// Update menus, pages, etc
 				imageGrid.showImages(website.images);
 				menus.updateAll();	// Order menus and pages initialization is important!
@@ -1631,7 +1710,7 @@ var website = instantiateClass({
 		this.initializeCompleted = true;
 	},
 	fullyLoaded: function() {
-		return this.initializeCompleted && this.text && this.images;
+		return this.initializeCompleted && this.text && this.images && this.reviews;
 	},
 	getLanguage: function() {
 		var language = browser.getLanguage();

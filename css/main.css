@@ -137,6 +137,10 @@ svg {
 	display: none;
 }
 
+.review-list li:not(:last-child) {
+	border-bottom: 1px solid rgba(24, 163, 82, .3);	/* Ref blog color */
+}
+
 .review {
 	clear: both;
 	position: relative;
@@ -148,6 +152,11 @@ svg {
 	margin-right: auto;
 	color: #18a352;		/* Ref: blog color */
 	text-align: center;
+}
+
+.review-list .review {
+	margin-top: 2em;
+	margin-bottom: 2em;
 }
 
 .review .text {
@@ -263,7 +272,7 @@ nav {
 #languages,
 #title .content .text .services {
 	padding-top: .3em;
-	font-size: .7em;
+	font-size: 1em;
 
 	-webkit-transition: font-size .5s ease .1s;
 	-moz-transition: font-size .5s ease .1s;
@@ -379,7 +388,7 @@ nav .menu a {
 }
 
 nav .menu a {
-	font-size: .8em;
+	font-size: 1em;
 
 	-webkit-transition: font-size .5s ease .1s;
 	-moz-transition: font-size .5s ease .1s;
@@ -412,7 +421,7 @@ nav .menu > li {
 }
 
 nav.opened .menu > li {
-	height: 1.3em;		/* Def: menu-item height */
+	height: 1.5em;		/* Def: menu-item height */
 	padding-left: 1em;
 }
 
@@ -458,7 +467,7 @@ nav .menu-blog ul {
 	padding-left: 1em;
 	padding-right: 1em;
 	margin-top: 0;
-	font-size: .8em;	/* Def: page font-size */
+	font-size: 1em;	/* Def: page font-size */
 	overflow: hidden;
 
 	-webkit-transition: width .5s ease .1s, min-width .5s ease .1s, margin-top .5s ease .1s, padding-left .5s ease .1s, padding-right .5s ease .1s;
@@ -766,6 +775,10 @@ nav .menu-blog ul {
 	top: 0;
 }
 
+.page-reviews h3 {
+	text-align: center;
+}
+
 .page-links .logos {
 	clear: both;
 }
@@ -933,6 +946,7 @@ nav .menu-blog ul {
 	}
 	.page {
 		margin-top: 1em;
+		font-size: .8em;
 	}
 	#mobile-indicator {
 		display: none;
