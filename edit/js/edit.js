@@ -160,8 +160,8 @@ var siteEditor = instantiateClass({
 			id: "",
 			category: "",
 			content: editor.getData()
-					.replace(/>\s+/g, ">")		// Whitespace after tag
-					.replace(/\s+</g, "<")		// Whitespace before tag
+//					.replace(/>\s+/g, ">")		// Whitespace after tag
+//					.replace(/\s+</g, "<")		// Whitespace before tag
 					.replace(/^\s+/, "")		// Whitespace at start
 					.replace(/\s+$/, "")		// Whitespace at end
 		};
