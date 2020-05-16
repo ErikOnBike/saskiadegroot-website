@@ -125,7 +125,7 @@ CKEDITOR.editorConfig = function(config) {
 	config.resize_enabled = false;
 	config.dialog_noConfirmCancel = true;
 	config.format_tags = "p;h1;h2";
-	config.allowedContent = "div[*](*);p;br;ul(no-bullets);ol;li;h1(title,drawing-background,coaching-background,guiding-background);h2;b;i;s;sub;sup;a[*](mailsecurity,telsecurity);img[src,title,data-id,data-thumbnail,data-selection,data-title-nl,data-title-en]{margin-left,margin-top,width};svg[*];use[*];iframe[*](gcal,desktop,mobile,gmaps)"; 
+	config.allowedContent = "div[*](*);p;br;ul(no-bullets);ol;li;h1(title,drawing-background,coaching-background,guiding-background);h2;b;i;s;sub;sup;a[*](mailsecurity,telsecurity);img[src,title,data-load-late-src,data-id,data-thumbnail,data-selection,data-title-nl,data-title-en]{margin-left,margin-top,width}(*);svg[*];use[*];iframe[*](gcal,desktop,mobile,gmaps)"; 
 	config.uploadUrl = "/edit/php/uploadimage.php";
 };
 
