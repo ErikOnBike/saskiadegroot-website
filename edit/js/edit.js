@@ -734,6 +734,7 @@ function shallowCopy(obj) {
 
 // Remove/insert editor whenever website is shown (when changing language)
 website.addBeforeShowHandler(siteEditor.removeEditors);
+website.addAfterShowHandler(website.loadAllResourcesLate);
 website.addAfterShowHandler(siteEditor.insertEditors);
 
 // Add Facebook init
