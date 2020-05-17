@@ -3,96 +3,119 @@
         "src": "/img/artwork0001.jpg",
         "selection": "0.2,0,1.4",
         "title-nl": "Wat komt er uit jouw ei?",
-        "title-en": "What hatches?"
+        "title-en": "What hatches?",
+        "category": "drawing"
     },
     {
         "src": "/img/artwork0002.jpg",
         "selection": "0,0,1.00623",
         "title-nl": "Escher door Evie",
-        "title-en": "Escher by Evie"
+        "title-en": "Escher by Evie",
+        "category": "drawing"
     },
     {
         "src": "/img/artwork0003.jpg",
         "selection": "0,0,1",
         "title-nl": "Golven door Amelka",
-        "title-en": "Waves by Amelka"
+        "title-en": "Waves by Amelka",
+        "category": "drawing"
     },
     {
         "src": "/img/artwork0004.jpg",
         "selection": "0.32,0,1.6",
         "title-nl": "Vrijheidsbeeld",
-        "title-en": "Statue of Liberty"
+        "title-en": "Statue of Liberty",
+        "category": "drawing"
     },
     {
         "src": "/img/artwork0005.jpg",
         "selection": "0,0,1.0",
         "title-nl": "Van initiaal naar dier",
-        "title-en": "From initial to animal"
+        "title-en": "From initial to animal",
+        "category": "drawing"
     },
     {
         "src": "/img/artwork0006.jpg",
         "selection": "0,0,1.1",
         "title-nl": "Aboriginal kunst",
-        "title-en": "Aboriginal art"
+        "title-en": "Aboriginal art",
+        "category": "drawing"
     },
     {
         "src": "/img/artwork0007.jpg",
         "selection": "0,0,1.1",
         "title-nl": "Stromingsbeelden",
-        "title-en": "Flowing lines"
+        "title-en": "Flowing lines",
+        "category": "drawing"
     },
     {
         "src": "/img/artwork0008.jpg",
         "selection": "0,0,1.0",
         "title-nl": "Arrow city",
-        "title-en": "Arrow city"
+        "title-en": "Arrow city",
+        "category": "drawing"
     },
     {
         "src": "/img/artwork0009.jpg",
         "selection": "0.3,0,1.4",
         "title-nl": "Wat zie je in de vlek?",
-        "title-en": "What do you see in the drop?"
+        "title-en": "What do you see in the drop?",
+        "category": "drawing"
     },
     {
         "src": "/img/artwork0010.jpg",
         "selection": "0,0,1.0",
         "title-nl": "Ritme van een lied",
-        "title-en": "Rhythm of a song"
+        "title-en": "Rhythm of a song",
+        "category": "drawing"
     },
     {
         "src": "/img/artwork0011.jpg",
         "selection": "0,0,1.0",
         "title-nl": "Voelen",
-        "title-en": "Feeling"
+        "title-en": "Feeling",
+        "category": "drawing"
     },
     {
         "src": "/img/artwork0012.jpg",
         "selection": "0,0,1.0",
         "title-nl": "Natuur",
-        "title-en": "Nature"
+        "title-en": "Nature",
+        "category": "drawing"
     },
     {
         "src": "/img/artwork0013.jpg",
         "selection": "0,0,1.0",
         "title-nl": "Escher door Amy",
-        "title-en": "Escher by Amy"
+        "title-en": "Escher by Amy",
+        "category": "drawing"
     },
     {
         "src": "/img/artwork0014.jpg",
         "selection": "0,0,1.0",
         "title-nl": "Geometrische vormen",
-        "title-en": "Geometrical shapes"
+        "title-en": "Geometrical shapes",
+        "category": "drawing"
     },
     {
         "src": "/img/artwork0015.jpg",
         "selection": "0,0,1.0",
         "title-nl": "Basis voor Colourtation",
-        "title-en": "Base for Colourtation"
+        "title-en": "Base for Colourtation",
+        "category": "drawing"
     },
     {
         "src": "/img/artwork0016.jpg",
         "selection": "0,0,1.0",
         "title-nl": "Wat maakt jou gelukkig?",
-        "title-en": "What makes you happy?"
+        "title-en": "What makes you happy?",
+        "category": "drawing"
+    },
+    {
+        "src": "/img/artwork0016.jpg",
+        "selection": "0,0,1.0",
+        "title-nl": "test",
+        "title-en": "test",
+        "category": "Saskia"
     }
 ]
