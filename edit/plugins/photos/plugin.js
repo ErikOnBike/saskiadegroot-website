@@ -439,7 +439,7 @@ CKEDITOR.plugins.add("photos", {
 							{
 								id: "file-upload-photo",
 								type: "html",
-								html: '<form class="image-upload" action="/edit/php/uploadimage.php" method="post" enctype="multipart/form-data"><div><label for="file">Choose image to upload</label><input type="file" accept=".jpg,.jpeg,.png" id="file" name="photo[]" multiple></div><div><button type="submit">Send to server</button></div></form>'
+								html: '<form class="image-upload" action="/edit/php/uploadimage.php" method="post" enctype="multipart/form-data"><input type="hidden" name="type" value="polaroid"><div><label for="file">Choose page photo to upload</label><input type="file" accept=".jpg,.jpeg,.png" id="file" name="photo[]" multiple></div><div><button type="submit">Send to server</button></div></form>'
 							}
 						]
 					},

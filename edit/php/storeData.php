@@ -103,7 +103,7 @@
 		}
 
 		// Every work should contain 6 string fields
-		$fields = [ 'src', 'left', 'top', 'zoom', 'title-nl', 'title-en' ];
+		$fields = [ 'src', 'selection', 'title-nl', 'title-en', 'category' ];
 		foreach($artwork as $work) {
 			if(!hasOnlyValidStringFields($work, $fields)) {
 				return FALSE;

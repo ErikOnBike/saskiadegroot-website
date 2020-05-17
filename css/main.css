@@ -716,12 +716,12 @@ nav .menu-blog ul {
 	width: 100%;
 }
 
-.page-drawing-artwork .image-grid {
+.image-grid {
 	position: relative;
 	width: 100%;
 }
 
-.page-drawing-artwork .image-container {
+.image-grid .image-container {
 	position: relative;
 	width: 100%;
 	padding-top: 100%;	/* Height equals width */
@@ -734,7 +734,7 @@ nav .menu-blog ul {
 	transition: margin-top .5s ease .1s, left .5s ease .1s, width .5s ease .1s, padding-top .5s ease .1s;
 }
 
-.page-drawing-artwork .image {
+.image-grid .image {
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -744,12 +744,12 @@ nav .menu-blog ul {
 	overflow: hidden;
 }
 
-.page-drawing-artwork .image-grid > div:nth-child(n + 1) {
+.image-grid > div:nth-child(n + 1) {
 	left: 0%;
 	margin-top: 0%;
 }
 
-.page-drawing-artwork .image img {
+.image-grid .image img {
 	width: 100%;
 }
 
@@ -1059,15 +1059,15 @@ nav .menu-blog ul {
 	.page-blog .blog-entry .blog-image {
 		float: left;
 	}
-	.page-drawing-artwork .image-container {
+	.image-grid .image-container {
 		width: 50%;
 		padding-top: 50%;	/* Height equals width */
 	}
-	.page-drawing-artwork .image-grid > div:nth-child(2n+1) {
+	.image-grid > div:nth-child(2n+1) {
 		left: 0%;
 		margin-top: 0%;
 	}
-	.page-drawing-artwork .image-grid > div:nth-child(2n+2) {
+	.image-grid > div:nth-child(2n+2) {
 		left: 50%;
 		margin-top: -50%;
 	}
@@ -1138,19 +1138,19 @@ nav .menu-blog ul {
 	.page-home .heading {
 		font-size: 1.344em;
 	}
-	.page-drawing-artwork .image-container {
+	.image-grid .image-container {
 		width: 33.3333%;
 		padding-top: 33.3333%;	/* Height equals width */
 	}
-	.page-drawing-artwork .image-grid > div:nth-child(3n+1) {
+	.image-grid > div:nth-child(3n+1) {
 		left: 0%;
 		margin-top: 0%;
 	}
-	.page-drawing-artwork .image-grid > div:nth-child(3n+2) {
+	.image-grid > div:nth-child(3n+2) {
 		left: 33.3333%;
 		margin-top: -33.3333%;
 	}
-	.page-drawing-artwork .image-grid > div:nth-child(3n+3) {
+	.image-grid > div:nth-child(3n+3) {
 		left: 66.6666%;
 		margin-top: -33.3333%;
 	}
@@ -1189,23 +1189,23 @@ nav .menu-blog ul {
 		min-width: 940px;
 		width: 70%;
 	}
-	.page-drawing-artwork .image-container {
+	.image-grid .image-container {
 		width: 25%;
 		padding-top: 25%;	/* Height equals width */
 	}
-	.page-drawing-artwork .image-grid > div:nth-child(4n+1) {
+	.image-grid > div:nth-child(4n+1) {
 		left: 0%;
 		margin-top: 0%;
 	}
-	.page-drawing-artwork .image-grid > div:nth-child(4n+2) {
+	.image-grid > div:nth-child(4n+2) {
 		left: 25%;
 		margin-top: -25%;
 	}
-	.page-drawing-artwork .image-grid > div:nth-child(4n+3) {
+	.image-grid > div:nth-child(4n+3) {
 		left: 50%;
 		margin-top: -25%;
 	}
-	.page-drawing-artwork .image-grid > div:nth-child(4n+4) {
+	.image-grid > div:nth-child(4n+4) {
 		left: 75%;
 		margin-top: -25%;
 	}

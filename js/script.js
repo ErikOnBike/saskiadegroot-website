@@ -1429,28 +1429,49 @@ var imageGrid = instantiateClass({
 
 	// Methods
 	showImages: function(images) {
+		var imagesPerCategory = images.reduce(function(imagesPerCategory, image) {
+			if(!imagesPerCategory[image.category]) {
+				imagesPerCategory[image.category] = [];
+			}
+			imagesPerCategory[image.category].push(image);
+			return imagesPerCategory;
+		}, {});
 
-		// Append images
-		d3.select(".page-drawing-artwork .image-grid").selectAll(".image-container")
-			.data(images)
-			.enter()
-				.append("div")
-					.attr("class", "image-container")
+		// Append images per category
+		Object.keys(imagesPerCategory).forEach(function(category) {
+			d3.select('[data-category="' + category + '"].image-grid').selectAll(".image-container")
+				.data(imagesPerCategory[category])
+				.enter()
 					.append("div")
-						.attr("class", "image")
-						.append("img")
-							.attr("data-load-late-src", function(d) { return d.src; })
-							.attr("data-id", function(d, index) { return index; })
-							.attr("data-selection", function(d) { return d.selection; })
-							.attr("data-title-nl", function(d) { return d["title-nl"]; })
-							.attr("data-title-en", function(d) { return d["title-en"]; })
-							.each(this.updateImage)
-							.on("click", function() {
-								var image = d3.select(this);
-								polaroids.showFull(image);
-							})
-		;
+						.attr("class", "image-container")
+						.append("div")
+							.attr("class", "image")
+							.append("img")
+								.attr("data-load-late-src", function(d) { return d.src; })
+								.attr("data-selection", function(d) { return d.selection; })
+								.attr("data-title-nl", function(d) { return d["title-nl"]; })
+								.attr("data-title-en", function(d) { return d["title-en"]; })
+								.each(imageGrid.updateImage)
+								.on("click", function() {
+									var image = d3.select(this);
+									polaroids.showFull(image);
+								})
+			;
+		});
 		this.showingImages = true;
+	},
+	insertImage: function(imageUrl) {
+		var grid = pages.activePage.select(" .image-grid");
+		grid.insert("div", ":first-child")
+			.attr("class", "image-container")
+			.append("div")
+				.attr("class", "image")
+				.append("img")
+					.attr("src", imageUrl)
+					.attr("data-selection", "0,0,1.0")
+					.attr("data-title-nl", "Nieuw")
+					.attr("data-title-en", "New")
+		;
 	},
 	updateImage: function() {
 		var image = d3.select(this);
@@ -1560,6 +1581,12 @@ var website = instantiateClass({
 		attrName = "data-load-lazy-src";
 		page.selectAll("[" + attrName + "]").each(function() {
 			website.loadResource(this, attrName);
+		});
+	},
+	loadAllResourcesLate: function() {
+		d3.selectAll(".page").each(function() {
+			var page = d3.select(this);
+			website.loadResourcesLate(page);
 		});
 	},
 	loadArtwork: function() {

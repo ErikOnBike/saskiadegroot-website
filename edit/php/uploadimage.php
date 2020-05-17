@@ -58,7 +58,7 @@
 	}
 
 	// Create new (empty) image file
-	function createNewImageFile() {
+	function createNewImageFile($photoType) {
 
 		// Find last photo file name used
 		$lastPhotoFound = FALSE;
@@ -66,8 +66,9 @@
 		if(!$dir) {
 			exitWithResult(array('resultCode' => ResultConstants::INTERNAL, 'resultMessage' => 'Failed to read image directory'));
 		}
+		$photoReg = $photoType === 'polaroid' ? '/^photo\d{4}\.jpg$/' : '/^artwork\d{4}\.jpg$/';
 		while(($dirEntry = $dir->read()) !== FALSE) {
-			if(preg_match('/^photo\d{4}\.jpg$/', $dirEntry) && is_file(IMG_FOLDER . $dirEntry)) {
+			if(preg_match($photoReg, $dirEntry) && is_file(IMG_FOLDER . $dirEntry)) {
 				if(!$lastPhotoFound || $lastPhotoFound < $dirEntry) {
 					$lastPhotoFound = $dirEntry;
 				}
@@ -77,15 +78,15 @@
 
 		// Increase photo number
 		if(!$lastPhotoFound) {
-			$lastPhotoFound = 'photo0000.jpg';
+			$lastPhotoFound = $photoType === 'polaroid' ? 'photo0000.jpg' : 'artwork0000.jpg';
 		}
-		$photoNumber = intval(substr($lastPhotoFound, 5, 4)) + 1;
+		$photoNumber = intval(substr($lastPhotoFound, $photoType === 'polaroid' ? 5 : 7, 4)) + 1;
 		if($photoNumber > 9999) {
 			return FALSE;
 		}
 
 		// Create new photo file and return name
-		$newPhotoName = IMG_FOLDER . 'photo' . substr('0000' . $photoNumber, -4) . '.jpg';
+		$newPhotoName = IMG_FOLDER . ($photoType === 'polaroid' ? 'photo' : 'artwork') . substr('0000' . $photoNumber, -4) . '.jpg';
 		if(touch($newPhotoName)) {
 			return $newPhotoName;
 		}
@@ -93,7 +94,7 @@
 	}
 
 	// Save file
-	function saveFile($photo) {
+	function saveFile($photo, $photoType) {
 
 		// Test if name is present
 		if(!isset($photo['name'])) {
@@ -126,7 +127,7 @@
 		}
 
 		// Get new photo name
-		$newPhotoName = createNewImageFile();
+		$newPhotoName = createNewImageFile($photoType);
 		if(!$newPhotoName) {
 			return 'Photo named "' . $photo['name'] . '" could not be stored, because no filename could be created.';
 		}
@@ -138,7 +139,7 @@
 			return 'Photo named "' . $photo['name'] . '" could not be processed or copied to its destination location.';
 		}
 
-		return TRUE;
+		return 'OK:' . $newPhotoName;
 	}
 
 	// Main
@@ -146,6 +147,12 @@
 
 		// Initialize
 		set_error_handler("errorHandler");
+
+		// Check if a photo type is present
+		$photoType = $_POST["type"];
+		if($photoType !== 'polaroid' && $photoType !== 'artwork') {
+			exitWithResult(array('resultCode' => ResultConstants::INVALID_INPUT, 'resultMessage' => 'No photo type specified'));
+		}
 
 		// Check if photo is/photos are received
 		$photos = $_FILES['photo'];
@@ -163,11 +170,13 @@
 		}
 
 		// Save photos
+		$savedNames = [];
 		$errors = [];
 		$hasValidImages = FALSE;
 		foreach($files['photo'] as $photo) {
-			$result = saveFile($photo);
-			if($result === TRUE) {
+			$result = saveFile($photo, $photoType);
+			if(strncmp($result, 'OK:', 3) === 0) {
+				$savedNames[] = substr($result, 3 + 5);	// Also remove "../.." (see images.php)
 				$hasValidImages = TRUE;
 			} else {
 				$errors[] = $result;
@@ -183,7 +192,8 @@
 			}
 		}
 
-		exitWithResult(array('resultCode' => ResultConstants::OK));
+		// Add image names in result (will not have a , so okay to use as separator)
+		exitWithResult(array('resultCode' => ResultConstants::OK, 'resultNames' => implode(',', $savedNames)));
 	} catch(Exception $e) {
 		exitWithResult(array('resultCode' => ResultConstants::INTERNAL, 'resultMessage' => $e->getMessage()));
 	}

@@ -134,6 +134,13 @@ var siteEditor = instantiateClass({
 	getEditorSelection: function(editor) {
 		return d3.select(editor.elementPath().lastElement.$);
 	},
+	setEditorSelection: function(editor, selection) {
+		var range = new CKEDITOR.dom.range(editor.document);
+		var editorNode = new CKEDITOR.dom.node(selection.node());
+		range.setStartBefore(editorNode);
+		range.setEndAfter(editorNode);
+		editor.getSelection().selectRanges([ range ]);
+	},
 	getAllEditors: function() {
 		return Object.keys(CKEDITOR.instances).map(function(editorName) {
 			return CKEDITOR.instances[editorName];
@@ -234,6 +241,7 @@ var siteEditor = instantiateClass({
 		if(pageData.status === "new") {
 			pageData.status = "draft";
 		}
+		var editorPage = siteEditor.getEditorPage(editor);
 		var performSave = function() {
 			siteEditor.storePage(pageData, function(error, result) {
 				if(error || !result) {
@@ -244,7 +252,6 @@ var siteEditor = instantiateClass({
 					window.alert("Failed to store page: " + pageData.id + " (" + result.resultCode + " -> " + result.resultMessage + ")");
 					return;
 				}
-				var editorPage = siteEditor.getEditorPage(editor);
 				if(editorPage.attr("data-status") === "new") {
 					editorPage.attr("data-status", "draft");
 				}
@@ -267,7 +274,7 @@ var siteEditor = instantiateClass({
 				}
 			});
 		};
-		if(pageData.id === "/drawing/artwork") {
+		if(editorPage.select(".image-grid").size() === 1) {
 			siteEditor.saveArtwork(performSave);
 		} else {
 			performSave();
@@ -283,15 +290,18 @@ var siteEditor = instantiateClass({
 
 		// Test if artwork has changed (before storing pages, since it will filter out the artwork)
 		var newArtwork = [];
-		d3.selectAll(".image-grid img").each(function() {
-			var image = d3.select(this);
-			newArtwork.push({
-				src: image.attr("src"),
-				left: image.attr("data-left"),
-				top: image.attr("data-top"),
-				zoom: image.attr("data-zoom"),
-				"title-nl": image.attr("data-title-nl"),
-				"title-en": image.attr("data-title-en")
+		d3.selectAll(".image-grid").each(function() {
+			var grid = d3.select(this);
+			var category = grid.attr("data-category");
+			grid.selectAll("img").each(function() {
+				var image = d3.select(this);
+				newArtwork.push({
+					src: image.attr("src"),
+					selection: image.attr("data-selection"),
+					"title-nl": image.attr("data-title-nl"),
+					"title-en": image.attr("data-title-en"),
+					"category": category
+				});
 			});
 		});
 		var isChanged = website.images.length !== newArtwork.length;
