@@ -112,10 +112,276 @@
         "category": "drawing"
     },
     {
-        "src": "/img/artwork0016.jpg",
-        "selection": "0,0,1.0",
-        "title-nl": "test",
-        "title-en": "test",
-        "category": "Saskia"
+        "src": "/img/artwork0068.jpg",
+        "selection": "0.00000,0.00000,1.00000",
+        "title-nl": "Judasboom - foto - 5 mei 202 ",
+        "title-en": "Judas Tree - photo - 5 May 2020",
+        "category": "photos"
+    },
+    {
+        "src": "/img/artwork0067.jpg",
+        "selection": "0.00000,0.00000,1.00000",
+        "title-nl": "Boom in Wintertarweveld - foto - 6 juni 2020",
+        "title-en": "Tree in Field of Winter Wheat - photo  - 6 June 2020",
+        "category": "photos"
+    },
+    {
+        "src": "/img/artwork0065.jpg",
+        "selection": "0.00000,0.15625,1.00000",
+        "title-nl": "Mot in Muskuskaasjeskruid - foto - 14 juni 2020",
+        "title-en": "Moth in Musk Mallow - photo - 14 June 2020",
+        "category": "photos"
+    },
+    {
+        "src": "/img/artwork0064.jpg",
+        "selection": "0.00000,0.00000,1.00000",
+        "title-nl": "Bereklauw - Foto - 2020",
+        "title-en": "Hogweed - Photo - 2020",
+        "category": "photos"
+    },
+    {
+        "src": "/img/artwork0063.jpg",
+        "selection": "0.22812,0.60313,2.47436",
+        "title-nl": "Persoonlijk afscheidsschilderij met NL tintje - juni 2020",
+        "title-en": "Personal goodbye painting with NL touch - June 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0062.jpg",
+        "selection": "0.06250,0.33437,1.27244",
+        "title-nl": "eindversie, 'trap naar licht' - aquarel - juni 2020",
+        "title-en": "end version 'Stairway to light' - watercolour - June 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0061.jpg",
+        "selection": "0.16250,0.18438,2.41026",
+        "title-nl": "Afscheidskadootje voor koorlid -  acryl - 2 juni 2020",
+        "title-en": "Goodbye gift to choir member - acryllics - 2 June 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0060.jpg",
+        "selection": "0.30938,0.20938,1.75000",
+        "title-nl": "Vlaamse Gaai - acryl op behang - 1 mei 2020",
+        "title-en": "Jay bird - acryllics on wall paper - 1 May 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0059.jpg",
+        "selection": "0.00000,0.00000,1.00000",
+        "title-nl": "Roodborstje voor Karine - acryl op behang - mei 2020",
+        "title-en": "Red robin for Karine - acryllics on wall paper - May 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0058.jpg",
+        "selection": "0.21250,0.10625,1.47829",
+        "title-nl": "Zwaan - acryl op behang - mei 2020",
+        "title-en": "Swan - acryllics on wall paper - May 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0056.jpg",
+        "selection": "0.36875,0.15937,1.83333",
+        "title-nl": "Staartmees voor mijn vader - acryl op behang - 27 april 2020",
+        "title-en": "Long-tailed tit - acryllics on wal paper - 27 April 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0055.jpg",
+        "selection": "0.36562,0.23750,1.80128",
+        "title-nl": "Merel - houtskool en acryl op behang - 22 april 2020",
+        "title-en": "Black bird - Charcoal and acryllics on wall paper - 22 April 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0054.jpg",
+        "selection": "0.20938,0.03438,1.80128",
+        "title-nl": "IJsvogel - houtskool en acryl op behang - 21 april 2020",
+        "title-en": "Kingfisher - charcoal and acryllics on wall paper - 21 April 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0053.jpg",
+        "selection": "0.00000,0.25312,1.00000",
+        "title-nl": "Grote Bonte Specht - houtskool en acryl op behang - 20 april 2020",
+        "title-en": "Great spotted woodpecker - charcoal and acryllics on wall paper  - 20 April 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0052.jpg",
+        "selection": "0.39063,0.10938,1.66987",
+        "title-nl": "Mus - houtskool en acryl op behang - 19 april 2020",
+        "title-en": "Sparrow - charcoal and acryllics on wall paper - 19 April 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0051.jpg",
+        "selection": "0.44688,0.17500,1.87821",
+        "title-nl": "Koolmeesje - houtskool en acryl op behang - 19 april 2020",
+        "title-en": "Great tit - charcoal and acryllics on wall paper - 19 April 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0050.jpg",
+        "selection": "0.25000,0.20000,1.84615",
+        "title-nl": "Roodborstje - houtskool en acryl op behang - 19 april 2020",
+        "title-en": "Red robin - charcoal and acryllics on wall paper - 19 April 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0049.jpg",
+        "selection": "0.25000,0.28437,1.54487",
+        "title-nl": "Roodborstje - houtskool en acryl op behang - 18 april 2020",
+        "title-en": "Red Robin - charcoal and acryllics on wall paper - 18 April 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0048.jpg",
+        "selection": "0.00000,0.00000,1.00000",
+        "title-nl": "Luchtballonnen - acryl - 29 maart 2020",
+        "title-en": "Hot air balloons - acryllics - 29 March 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0047.jpg",
+        "selection": "0.18125,0.51875,1.48077",
+        "title-nl": "Pad naar licht - aquarel - niet af - 15 maart 2020 ",
+        "title-en": "Path to Light - watercolour - unfinished - 15 March 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0046.jpg",
+        "selection": "0.24063,0.09688,1.46474",
+        "title-nl": "Collage olifant - 24 februari 2020",
+        "title-en": "Collage Elephant - 24 Februari 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0045.jpg",
+        "selection": "0.25938,0.30625,1.52885",
+        "title-nl": "Collage Amsterdam - 13 februari 2020",
+        "title-en": "Collage Amsterdam - 13 Februari 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0044.jpg",
+        "selection": "0.00000,0.00000,1.00000",
+        "title-nl": "Landschap met klaprozen - acryl - 10 februari 2020",
+        "title-en": "Landscape with poppies - acryllics - 10 February 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0043.jpg",
+        "selection": "0.30625,0.21875,1.70192",
+        "title-nl": "Kiezelkunst 'De Aardappel' - acryl - 4 februari 2020",
+        "title-en": "Pebble Art 'the potatoe' - acryllics - 4 February 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0042.jpg",
+        "selection": "0.06875,0.43750,1.32051",
+        "title-nl": "Tokkie, onze zijdehoen - acryl - 28 januari 2020",
+        "title-en": "Tokkie, our silky - acryllics - 28 January 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0041.jpg",
+        "selection": "0.28750,0.95625,1.72115",
+        "title-nl": "Grote Beer van dochter - acryl - 16 januari 2020",
+        "title-en": "Daugther's Big Beer - acryllics - 16 January 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0040.jpg",
+        "selection": "0.32500,0.99375,1.81731",
+        "title-nl": "Meeuw - acryl - 6 januari 2020 ",
+        "title-en": "Gull - acryllics - 6 January 2020 ",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0039.jpg",
+        "selection": "0.66563,0.43750,2.77885",
+        "title-nl": "Geïnspireerd op kiezelkunst van mijn moeder - 'Zee en meeuw'- acryl - 25 november 2019",
+        "title-en": "Inspired on mother's pebble art - 'Sea and gull' - acryllics - 25 November 2020",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0038.jpg",
+        "selection": "0.20625,0.19375,1.70513",
+        "title-nl": "Geïnspireerd op kiezelkunst van mijn moeder - 'Vogels op palen' - aquarel - 24 oktober 2019",
+        "title-en": "Inspired by mother's pebble art - 'Birds on poles' - watercolour - 24 October 2019",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0037.jpg",
+        "selection": "0.33437,0.79688,1.73718",
+        "title-nl": "Spruitje - acryl - 18 okt 2019",
+        "title-en": "Brussels sprout - acryllics - 18 October 2019",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0036.jpg",
+        "selection": "0.12187,0.25625,1.16026",
+        "title-nl": "Frans Hals' Lachende man - houtskool - 2 oktober 2019",
+        "title-en": "Frans Hals' Laughing man - charcoal - 2 October 2019",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0035.jpg",
+        "selection": "0.65000,0.73438,1.97756",
+        "title-nl": "  Frans Hals' Lachende man - houtskool - 7 oktober 2019 ",
+        "title-en": "  Frans Hals' Laughing man - charcoal - 7 October 2019 ",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0034.jpg",
+        "selection": "0.00000,0.09688,1.00000",
+        "title-nl": "Zelfportret Rembrandt (ets) met houtskool - 3 sep 2019 ",
+        "title-en": "Self portrait Rembrandt (etching) with charcoal - 3 Sep 2019 ",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0033.jpg",
+        "selection": "0.18125,0.56563,1.41667",
+        "title-nl": "Geinsprireerd door vakantiefoto - acryl - 15 augustus 2019",
+        "title-en": "Inspired by holiday photo - acryllics - 15 August 2019",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0032.jpg",
+        "selection": "0.10625,0.25625,1.22436",
+        "title-nl": "1e les acryl - zomer 2019 ",
+        "title-en": "1st lesson acryllics - Summer 2019 ",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0031.jpg",
+        "selection": "0.25312,0.53750,1.62500",
+        "title-nl": "Klaproos - aquarel - 1 juli 2019 ",
+        "title-en": "Poppy - watercolour - 1 July 2019",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0030.jpg",
+        "selection": "0.29375,0.69688,1.62500",
+        "title-nl": "Klaprozen - 1e aquarelles - 23 juni 2019",
+        "title-en": "Poppies - first watercolour lesson - 23 June 2019",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0029.jpg",
+        "selection": "0.10312,0.09688,1.20833",
+        "title-nl": "1e aquarelles - 23 juni 2019 ",
+        "title-en": "1st watercolour lesson - 23 June 2019",
+        "category": "paintings"
+    },
+    {
+        "src": "/img/artwork0069.jpg",
+        "selection": "0.00000,0.00000,1.00000",
+        "title-nl": "Judasboom - foto - 5 mei 202 ",
+        "title-en": "Judas Tree - photo - 5 May 2020",
+        "category": "postcards"
     }
 ]

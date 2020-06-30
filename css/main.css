@@ -63,6 +63,11 @@ body:after {
 	border-radius: 6px;
 }
 
+.art-background {
+	background-color: #18a352;	/* Def: art color */
+	border-radius: 6px;
+}
+
 ul {
 	list-style: disc;
 }
@@ -499,6 +504,11 @@ nav .menu-blog ul {
 .page.guiding h1,
 .page.guiding h2 {
 	color: #e156c8;		/* Ref: guiding color */ 
+}
+
+.page.art h1,
+.page.art h2 {
+	color: #18a352;		/* Ref: art color */
 }
 
 .page.links h1,
@@ -1035,7 +1045,7 @@ nav .menu-blog ul {
 	}
 	.page-home .column {
 		float: left;
-		width: 33.33%;
+		width: 25%;
 	}
 	.page-home .column.coaching .image {
 		order: 1;
@@ -1049,6 +1059,21 @@ nav .menu-blog ul {
 		order: 3;
 	}
 	.page-home .column.coaching [data-icon=triangle] {
+		top: auto;
+		bottom: -1.8em;
+	}
+	.page-home .column.art .image {
+		order: 1;
+	}
+	.page-home .column.art .title {
+		order: 2;
+		margin-top: 8px;
+		margin-bottom: 0;
+	}
+	.page-home .column.art p {
+		order 3;
+	}
+	.page-home .column.art [data-icon=triangle] {
 		top: auto;
 		bottom: -1.8em;
 	}
